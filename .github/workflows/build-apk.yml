@@ -1,0 +1,13 @@
+name: Build Flet APK
+
+on: jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run flet build apk --yes
+      - uses: actions/upload-artifact@v5
+        with:
+          name: Bank-APK
+          path: build/apk
